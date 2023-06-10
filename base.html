@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce - FAQ</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header>
+        <h1 class="nombre-sitio text-center">Black<span>Bone</span></h1>
+    </header>
+    <div class="contenedor-navegacion">
+        <nav class="nav-principal contenedor">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="blog.html">Blog</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </div>
+    <main class="contenido-principal contenedor">
+        <h2 class="text-center">Preguntas Frecuentes</h2>
+        <section class="preguntas">
+            <h3>¿Cómo puedo realizar una compra?</h3>
+            <p>Para realizar una compra, sigue estos pasos:</p>
+            <ol>
+                <li>Ingresa a nuestra tienda en línea.</li>
+                <li>Explora nuestros productos y añade los que te gusten al carrito de compras.</li>
+                <li>Revisa tu carrito de compras y procede al pago.</li>
+                <li>Proporciona la información de envío y realiza el pago.</li>
+                <li>Confirma tu compra y espera a que te llegue tu pedido.</li>
+            </ol>
+
+            <h3>¿Cuál es el tiempo de entrega?</h3>
+            <p>El tiempo de entrega depende de tu ubicación. Por lo general, nuestros envíos llegan en un plazo de 3 a 7 días hábiles.</p>
+
+            <h3>¿Qué métodos de pago aceptan?</h3>
+            <p>Aceptamos pagos con tarjeta de crédito, tarjeta de débito y PayPal.</p>
+
+            <h3>¿Puedo realizar devoluciones?</h3>
+            <p>Sí, aceptamos devoluciones dentro de los 30 días posteriores a la compra, siempre y cuando los productos estén en su estado original. Ponte en contacto con nuestro equipo de atención al cliente para iniciar el proceso de devolución.</p>
+        </section>
+    </main>
+    <div class="chat-desplegable">
+        <div class="chat-cerrado" onclick="abrirChat()">&#128172;</div>
+        <div class="chat-abierto" id="chat-abierto" style="max-height: 0;">
+            <div class="chat-mensajes" id="chat-mensajes"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Escribe tu mensaje">
+                <button onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para controlar el chat desplegable
+        function abrirChat() {
+            var chatAbierto = document.getElementById('chat-abierto');
+            var chatMensajes = document.getElementById('chat-mensajes');
+
+            if (chatAbierto.style.maxHeight === '0px') {
+                chatAbierto.style.maxHeight = '400px';
+                chatMensajes.scrollTop = chatMensajes.scrollHeight;
+            } else {
+                chatAbierto.style.maxHeight = '0';
+            }
+        }
+
+        function enviarMensaje() {
+            var chatMensajes = document.getElementById('chat-mensajes');
+            var inputMensaje = document.querySelector('.chat-input input');
+            var mensaje = inputMensaje.value;
+
+            if (mensaje.trim() !== '') {
+                var nuevoMensaje = document.createElement('p');
+                nuevoMensaje.textContent = mensaje;
+                chatMensajes.appendChild(nuevoMensaje);
+
+                inputMensaje.value = '';
+                chatMensajes.scrollTop = chatMensajes.scrollHeight;
+            }
+        }
+    </script>
+   <footer  class="site-footer">
+    <div class="contenedor grid-footer">
+        <div>
+            <h3>Navegacion</h3>
+            <nav class="navegacion-footer">
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="blog.html">Blog</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+        <div>
+            <h3>Contacto</h3>
+            <nav class="navegacion-footer">
+                <a href="contacto.html">Contacto</a>
+                <a href="blog.html">Blog</a>
+                <a href="FAQ.html">FAQ</a>
+                <a href="nosotros.html">Nosotros</a>
+            </nav>
+        </div>
+        <div>
+            <h3>Redes social</h3>
+            <nav class="navegacion-footer">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </nav>
+        </div>
+    </div>
+    <p class="copyright">&copy;Baruch Rodriguez, (Inserte nombres aqui), udgbaruch@gmail.com, (Insterte correos aqui)</p>
+</footer>
+</body>
+</html>
